@@ -1,5 +1,12 @@
 FROM golang:1.21
 
-WORKDIR /app
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
 
-CMD ["go", "run", "main.go"]
+ENV SERVER_PATH /
+WORKDIR $SERVER_PATH
+
+# Air hot reload
+RUN go install github.com/cosmtrek/air@latest
+CMD ["air"]
