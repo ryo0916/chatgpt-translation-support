@@ -2,6 +2,7 @@ version: '3.9'
 
 services:
   client:
+    platform: linux/x86_64
     build:
       context: client
     environment:
@@ -12,6 +13,7 @@ services:
     volumes:
       - ./client:/app
   server:
+    platform: linux/x86_64
     build:
       context: server
     environment:

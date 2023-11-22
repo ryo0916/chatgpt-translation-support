@@ -4,7 +4,7 @@ COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
-ENV SERVER_PATH /
+ENV SERVER_PATH /go/src/app
 WORKDIR $SERVER_PATH
 
 # Air hot reload
